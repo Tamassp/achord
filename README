@@ -1,0 +1,22 @@
+Name of application: Achord (Accord + Chord)
+
+Accord: to have the same opinion
+Chord: "A chord, in music, is any harmonic set of pitches/frequencies consisting of multiple notes (also called "pitches") that are heard as if sounding simultaneously." - Wikipedia
+
+Description:
+This application is intended to help musicians to display the chords of a song on one (or multiple) device(s).
+The goal of this app is to display only 1 or 2 bars of chords, so it can show the characters as big as possible. As the song proceeds with the agreed tempo, the bar components will be constantly changed, providing the right chords(and maybe some other notes/reminders) for the user.
+
+The user will be able to create a song (set up title, author etc.) and fill the bars with the chords and other musical notations. After saving, they can start a song and the sheet will go through the song according the set up.
+
+I came up with the idea because I am also playing an instrument and when we were playing music with my friends it was always hard to agree or to Accord on the Chords.
+I think this app would help people to make an agreed version of a song, so everybody is on the same page.
+
+Future of the app:
+The ultimate goal would be to hop in the same session with other people and with their devices, so everybody could play the same song at the same time. They could also personalize the song, only putting the relevant information for the member (for example a drummer doesn't have to care about the chords but he can set up some reminders like 'Count in' or 'Drum solo'). The multi-devices set up exceeds the scope of the AND1 course, but the one device version can be handled with minimal backend work.
+
+Requirements:
+1. As a user I want to register to the application
+2. As a user I want to log in to the application
+
+
