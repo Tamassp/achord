@@ -25,13 +25,15 @@ High Priority:
   e.	Tempo
 2.	As a user I want to edit a sheet, so I can change some details anytime.
 3.	As a user I want to start a sheet, so I can play with it anytime.
+4.  As a user I want to see a list of my sheets, so I can chose the next song.
 
 Low Priority:
-4.	As a user I want to change the theme of the application (color, text size etc.).
+1.	As a user I want to change the theme of the application (color, text size etc.).
+2.  As a user I want to make setlists, so I can put my songs in different orders.
 
 Project Future with multiple devices:
-5.	As a user I want to register to the application, so I can have an account.
-6.	As a user I want to log in/out to the application, so my data is secured.
-7.	As a user I want to create a session, so I can invite my friends into.
+1.	As a user I want to register to the application, so I can have an account.
+2.	As a user I want to log in/out to the application, so my data is secured.
+3.	As a user I want to create a session, so I can invite my friends into.
 
 
