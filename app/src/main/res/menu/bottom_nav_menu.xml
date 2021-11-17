@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nameFragment"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_name" />
+
+    <item
+        android:id="@+id/authorFragment"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_author" />
+
+    <item
+        android:id="@+id/keyFragment"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_key" />
+
+    <item
+        android:id="@+id/signatureFragment"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_signature" />
+
+    <item
+        android:id="@+id/startEditingFragment"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_startEditing" />
+
+</menu>

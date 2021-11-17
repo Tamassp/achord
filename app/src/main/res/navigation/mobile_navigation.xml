@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nameFragment">
+    <activity
+        android:id="@+id/newSongActivity"
+        android:name="com.example.achordandroidapp.NewSongActivity"
+        android:label="NewSongActivity" />
+    <fragment
+        android:id="@+id/nameFragment"
+        android:name="com.example.achordandroidapp.ui.name.NameFragment"
+        android:label="Name"
+        tools:layout="@layout/name_fragment" >
+        <action
+            android:id="@+id/action_nameFragment_to_authorFragment"
+            app:destination="@id/authorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorFragment"
+        android:name="com.example.achordandroidapp.ui.author.AuthorFragment"
+        android:label="Author"
+        tools:layout="@layout/author_fragment" >
+        <action
+            android:id="@+id/action_authorFragment_to_keyFragment"
+            app:destination="@id/keyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/keyFragment"
+        android:name="com.example.achordandroidapp.ui.key.KeyFragment"
+        android:label="Key"
+        tools:layout="@layout/key_fragment" >
+        <action
+            android:id="@+id/action_keyFragment_to_signatureFragment"
+            app:destination="@id/signatureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signatureFragment"
+        android:name="com.example.achordandroidapp.ui.signature.SignatureFragment"
+        android:label="Signature"
+        tools:layout="@layout/signature_fragment" >
+        <action
+            android:id="@+id/action_signatureFragment_to_startEditingFragment"
+            app:destination="@id/startEditingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startEditingFragment"
+        android:name="com.example.achordandroidapp.ui.startEditing.StartEditingFragment"
+        android:label="Edit Fragment"
+        tools:layout="@layout/start_editing_fragment" />
+</navigation>
