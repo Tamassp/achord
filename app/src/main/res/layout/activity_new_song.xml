@@ -40,7 +40,7 @@
         app:layout_constraintGuide_percent="0.35" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewCreateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

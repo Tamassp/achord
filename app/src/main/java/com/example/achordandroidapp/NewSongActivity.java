@@ -1,10 +1,15 @@
 package com.example.achordandroidapp;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -15,6 +20,9 @@ import com.example.achordandroidapp.databinding.ActivityNewSongBinding;
 public class NewSongActivity extends AppCompatActivity {
 
     private ActivityNewSongBinding binding;
+    NewSongViewModel newSongViewModel;
+    TextView createTitleTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,20 @@ public class NewSongActivity extends AppCompatActivity {
         //We don't need this since we disabled the default action bar
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        newSongViewModel = new ViewModelProvider(this).get(NewSongViewModel.class);
+
+
+        //Observing the Title TextView in the activity
+
+
+        //
+        createTitleTextView = findViewById(R.id.textViewCreateTitle);
+        createTitleTextView.setText("Name");
+
+
     }
+
+
 
 }
