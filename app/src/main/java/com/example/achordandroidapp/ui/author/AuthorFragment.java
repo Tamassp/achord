@@ -3,12 +3,18 @@ package com.example.achordandroidapp.ui.author;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
+import com.example.achordandroidapp.Sheet;
+import com.example.achordandroidapp.ui.name.NameFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +31,12 @@ public class AuthorFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Sheet sheet;
+
+    private TextView nameTextView;
+
+
+    private NewSongViewModel viewModel;
 
     public AuthorFragment() {
         // Required empty public constructor
@@ -45,6 +57,7 @@ public class AuthorFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -55,12 +68,38 @@ public class AuthorFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.author_fragment, container, false);
+        View view = inflater.inflate(R.layout.author_fragment, container, false);
+
+        viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
+
+
+        TextView textViewName = view.findViewById(R.id.textViewName);
+        textViewName.setText(viewModel.getSheet().getValue().getTitle());
+
+//        Bundle bundle = getArguments();
+//        if (bundle != null) {
+//            Sheet receivedSheet = bundle.getParcelable("sheetObject"); // Key
+//            //System.out.println(receivedSheet.getTitle());
+//            //Log.d("CUSTOMINFO", receivedSheet.getTitle());
+//           // textViewName.setText(receivedSheet.getTitle());
+//        }
+
+        return view ;
     }
+
+//    private void init(View view) {
+//        getViews(view);
+//    }
+//
+//    private void getViews(View view) {
+//
+//    }
 }

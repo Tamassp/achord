@@ -22,6 +22,10 @@
         android:name="com.example.achordandroidapp.ui.author.AuthorFragment"
         android:label="Author"
         tools:layout="@layout/author_fragment" >
+
+        <argument android:name="sheet"
+                    app:argType="com.example.achordandroidapp.Sheet"/>
+
         <action
             android:id="@+id/action_authorFragment_to_keyFragment"
             app:destination="@id/keyFragment" />

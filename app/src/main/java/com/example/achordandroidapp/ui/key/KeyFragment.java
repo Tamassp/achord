@@ -3,11 +3,14 @@ package com.example.achordandroidapp.ui.key;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 
 /**
@@ -25,6 +28,8 @@ public class KeyFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private NewSongViewModel viewModel;
 
     public KeyFragment() {
         // Required empty public constructor
@@ -60,7 +65,19 @@ public class KeyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
+
+
+        View view = inflater.inflate(R.layout.key_fragment, container, false);
+
+        TextView textViewKeyName = view.findViewById(R.id.textViewKeyName);
+        textViewKeyName.setText(viewModel.getSheet().getValue().getTitle());
+
+        TextView textViewKeyAuthor = view.findViewById(R.id.textViewKeyAuthor);
+        textViewKeyAuthor.setText(viewModel.getSheet().getValue().getAuthor());
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.key_fragment, container, false);
+        return view;
     }
 }

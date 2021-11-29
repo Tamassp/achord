@@ -1,14 +1,27 @@
 package com.example.achordandroidapp.ui.name;
 
+import android.app.Notification;
+import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.achordandroidapp.NewSongActivity;
+import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
+import com.example.achordandroidapp.Sheet;
+import com.example.achordandroidapp.ui.author.AuthorFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +38,10 @@ public class NameFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    Button buttonNextName;
+    private NewSongViewModel viewModel;
+
 
     public NameFragment() {
         // Required empty public constructor
@@ -60,7 +77,45 @@ public class NameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        /*FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment fragment = AuthorFragment.newInstance("helo", "belo");
+        ft.replace(R.id.authorFragment,fragment);*/
+
+
+
+        //
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.name_fragment, container, false);
+        View view = inflater.inflate(R.layout.name_fragment, container, false);
+
+        viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
+
+        EditText editTextSongName = view.findViewById(R.id.editTextSongName);
+
+//        buttonNextName = view.findViewById(R.id.nextButtonName);
+//        buttonNextName.setOnClickListener(v -> {
+//                    if (!editTextSongName.equals("")) {
+//
+//                    } else {
+//                        Toast.makeText(getActivity(), "Please enter the Title", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        );
+
+
+        Sheet sheet = new Sheet("TITLE","AUTHOR","C","44",100 );
+        viewModel.updateSheet(sheet);
+
+
+        //I tried to pass the data with bundles but I realised, it is better to use a viewModel instead
+//        Bundle bundle = new Bundle();
+//        bundle.putParcelable("sheetObject", sheet);
+//        setArguments(savedInstanceState);
+        //getParentFragmentManager().beginTransaction().replace(R.id.authorFragment, this).commit();
+
+
+        return view;
     }
 }

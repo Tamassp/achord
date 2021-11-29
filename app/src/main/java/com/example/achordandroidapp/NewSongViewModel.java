@@ -6,11 +6,21 @@ import androidx.lifecycle.ViewModel;
 
 public class NewSongViewModel extends ViewModel {
 
-    private MutableLiveData<String> title = new MutableLiveData<>();
+    private MutableLiveData<Sheet> sheet = new MutableLiveData<Sheet>();
 
-    public LiveData<String> getTitle() {
-        return title;
+    public LiveData<Sheet> getSheet() {
+        return sheet;
     }
+
+    public void updateSheet (Sheet sheet){
+        this.sheet.setValue(sheet);
+    }
+
+    public String getTitle(){
+        return  this.getTitle();
+    }
+
+
 
 
 }
