@@ -5,10 +5,14 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +26,8 @@ import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 import com.example.achordandroidapp.Sheet;
 import com.example.achordandroidapp.ui.author.AuthorFragment;
+
+import java.util.StringJoiner;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,7 +47,8 @@ public class NameFragment extends Fragment {
 
     Button buttonNextName;
     private NewSongViewModel viewModel;
-
+    //Sheet sheet =
+    Sheet  tempSheet = new Sheet("","","","",0);
 
     public NameFragment() {
         // Required empty public constructor
@@ -90,10 +97,19 @@ public class NameFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.name_fragment, container, false);
 
+
+
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
-        EditText editTextSongName = view.findViewById(R.id.editTextSongName);
+        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+            @Override
+            public void onChanged(Sheet sheet) {
 
+            }
+        });
+
+
+        //I tried to use a button to move to the next fragment but using the navbar element I didn't need it anymore
 //        buttonNextName = view.findViewById(R.id.nextButtonName);
 //        buttonNextName.setOnClickListener(v -> {
 //                    if (!editTextSongName.equals("")) {
@@ -104,9 +120,37 @@ public class NameFragment extends Fragment {
 //                }
 //        );
 
+        //Dummy test data
+        //Sheet sheet = new Sheet("TITLE","AUTHOR","C","44",100 );
+        EditText editTextSongName = view.findViewById(R.id.editTextSongName);
 
-        Sheet sheet = new Sheet("TITLE","AUTHOR","C","44",100 );
-        viewModel.updateSheet(sheet);
+
+
+        editTextSongName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                viewModel.setTitle(editable.toString());
+
+            }
+        });
+
+
+
+
+
+
+
 
 
         //I tried to pass the data with bundles but I realised, it is better to use a viewModel instead
@@ -118,4 +162,6 @@ public class NameFragment extends Fragment {
 
         return view;
     }
+
+
 }

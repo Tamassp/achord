@@ -3,12 +3,16 @@ package com.example.achordandroidapp.ui.author;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.achordandroidapp.NewSongViewModel;
@@ -31,12 +35,13 @@ public class AuthorFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private Sheet sheet;
-
+    //Sheet sheet = new Sheet("","","","",0);
+    Sheet  tempSheet = new Sheet("","","","",0);
     private TextView nameTextView;
 
 
     private NewSongViewModel viewModel;
+
 
     public AuthorFragment() {
         // Required empty public constructor
@@ -78,12 +83,46 @@ public class AuthorFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.author_fragment, container, false);
 
-        viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
-
 
         TextView textViewName = view.findViewById(R.id.textViewName);
-        textViewName.setText(viewModel.getSheet().getValue().getTitle());
 
+
+        viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
+
+        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+            @Override
+            public void onChanged(Sheet sheet) {
+                textViewName.setText(sheet.getTitle());
+            }
+        });
+
+
+        //textViewName.setText(viewModel.getSheet().getValue().getTitle());
+
+        //Sheet sheet = viewModel.getSheet().getValue();
+
+        EditText editTextSongAuthor = view.findViewById(R.id.editTextSongAuthor);
+        editTextSongAuthor.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                viewModel.setAuthor(editable.toString());
+            }
+                                                }
+        );
+
+
+
+        //          Bundle attempt
 //        Bundle bundle = getArguments();
 //        if (bundle != null) {
 //            Sheet receivedSheet = bundle.getParcelable("sheetObject"); // Key

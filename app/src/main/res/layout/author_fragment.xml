@@ -15,26 +15,24 @@
         android:text="Author:"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintEnd_toStartOf="@+id/editTextSongAuthor" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextSongAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -50,7 +48,7 @@
         android:layout_marginBottom="0dp"
         android:text="TextView"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSongAuthor"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 

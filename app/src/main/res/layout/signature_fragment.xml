@@ -5,15 +5,75 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.signature.SignatureFragment" >
+    tools:context=".ui.signature.SignatureFragment">
+
+    <TextView
+        android:id="@+id/textViewSigName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <TextView
+        android:id="@+id/textViewSigAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSigKey"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSigName" />
+
+    <TextView
+        android:id="@+id/textViewSigKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSongSignature"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+    <EditText
+        android:id="@+id/editTextSongSignature"
+        android:layout_width="128dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="signature"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Signature:"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toStartOf="@+id/editTextSongSignature" />
 </androidx.constraintlayout.widget.ConstraintLayout>

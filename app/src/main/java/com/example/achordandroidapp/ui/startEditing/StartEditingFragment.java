@@ -1,5 +1,6 @@
 package com.example.achordandroidapp.ui.startEditing;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -11,12 +12,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
+import com.example.achordandroidapp.Sheet;
 
 public class StartEditingFragment extends Fragment {
 
-    private StartEditingViewModel mViewModel;
+    //private StartEditingViewModel mViewModel;
+
+    private NewSongViewModel viewModel;
 
     public static StartEditingFragment newInstance() {
         return new StartEditingFragment();
@@ -25,13 +31,35 @@ public class StartEditingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.start_editing_fragment, container, false);
+
+        View view = inflater.inflate(R.layout.start_editing_fragment, container, false);
+
+        viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
+
+
+        TextView textViewSEName = view.findViewById(R.id.textViewSEName);
+        TextView textViewSEAuthor = view.findViewById(R.id.textViewSEAuthor);
+        TextView textViewSEKey = view.findViewById(R.id.textViewSEKey);
+        TextView textViewSESignature = view.findViewById(R.id.textViewSESignature);
+        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+            @Override
+            public void onChanged(Sheet sheet) {
+                textViewSEName.setText(sheet.getTitle());
+                textViewSEAuthor.setText(sheet.getAuthor());
+                textViewSEKey.setText(sheet.getKey());
+                textViewSESignature.setText(sheet.getTimeSignature());
+            }
+        });
+
+
+
+        return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(StartEditingViewModel.class);
+
         // TODO: Use the ViewModel
     }
 
