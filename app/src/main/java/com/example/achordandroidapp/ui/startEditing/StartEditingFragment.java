@@ -3,6 +3,7 @@ package com.example.achordandroidapp.ui.startEditing;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,8 +13,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.achordandroidapp.Editor.EditorActivity;
+import com.example.achordandroidapp.NewSongActivity;
 import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 import com.example.achordandroidapp.Sheet;
@@ -23,7 +27,7 @@ public class StartEditingFragment extends Fragment {
     //private StartEditingViewModel mViewModel;
 
     private NewSongViewModel viewModel;
-
+    private Button buttonStartEditing;
     public static StartEditingFragment newInstance() {
         return new StartEditingFragment();
     }
@@ -52,7 +56,11 @@ public class StartEditingFragment extends Fragment {
         });
 
 
-
+        buttonStartEditing = view.findViewById(R.id.buttonStartEditing);
+        buttonStartEditing.setOnClickListener(v -> {
+                    Intent intent = new Intent(getActivity(), EditorActivity.class);
+                    startActivity(intent);
+                });
         return view;
     }
 
