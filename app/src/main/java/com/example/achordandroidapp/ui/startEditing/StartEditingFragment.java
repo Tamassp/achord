@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.achordandroidapp.Editor.EditorActivity;
 import com.example.achordandroidapp.NewSongViewModel;
@@ -57,10 +58,19 @@ public class StartEditingFragment extends Fragment {
 
         buttonStartEditing = view.findViewById(R.id.buttonStartEditing);
         buttonStartEditing.setOnClickListener(v -> {
-                    Intent intent = new Intent(getActivity(), EditorActivity.class);
-                    startActivity(intent);
+            //The name and author have to be changed
+            if(viewModel.getSheetMut().getValue().getTitle().equals("Name") ||
+                    viewModel.getSheetMut().getValue().getAuthor().equals("Author") ){
+                Toast.makeText(getContext(), "Change the name or author", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Intent intent = new Intent(getActivity(), EditorActivity.class);
+                startActivity(intent);
+            }
                 });
+
         return view;
+
     }
 
     @Override

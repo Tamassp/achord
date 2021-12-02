@@ -11,6 +11,9 @@
         android:theme="@style/Theme.AchordAndroidApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Library.LibraryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Editor.EditorActivity"
             android:exported="false" />
         <activity

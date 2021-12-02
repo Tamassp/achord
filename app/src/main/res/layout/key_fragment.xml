@@ -19,7 +19,7 @@
         android:id="@+id/textViewKeyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Title"
         android:layout_marginBottom="10sp"
         android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
@@ -29,7 +29,7 @@
         android:id="@+id/textViewKeyAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Author"
         android:typeface="serif"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
@@ -41,10 +41,10 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="Key"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/textView4"

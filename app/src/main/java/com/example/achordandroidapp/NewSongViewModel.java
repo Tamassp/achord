@@ -14,10 +14,15 @@ public class NewSongViewModel extends ViewModel {
     private static Sheet sheetItem = new Sheet("","","","",0);
 
     /*NewSongViewModel(){
-        sheet = new MutableLiveData<Sheet>();
+        /*sheetItem.setTitle("Title");
+        sheetItem.setAuthor("Author");
+        sheetItem.setKey("C");
+        sheetItem.setTimeSignature("/4");
+        sheetMut.setValue(sheetItem);*/
+       /* sheet = new MutableLiveData<Sheet>();
         Sheet sheetObj = new Sheet("","","","",0);
-        sheet.setValue(sheetObj);
-    }*/
+        sheet.setValue(sheetObj);*/
+    //}
 
     public LiveData<Sheet> getSheetMut() {
         return sheetMut;

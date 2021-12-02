@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.achordandroidapp.Library.LibraryActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     MainActivityViewModel mainViewModel;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel.getMessage().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String message) {
-                textView.setText(message);
+                //textView.setText(message);
             }
         });
 
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
         buttonNewSong.setOnClickListener(v -> {
             Intent intentNewSong = new Intent(this, NewSongActivity.class);
             startActivity(intentNewSong);
+        });
+
+        Button buttonLibrary = findViewById(R.id.buttonLibrary);
+        buttonLibrary.setOnClickListener(v->{
+            Intent intentLibrary = new Intent(this, LibraryActivity.class);
+            startActivity(intentLibrary);
         });
     }
 

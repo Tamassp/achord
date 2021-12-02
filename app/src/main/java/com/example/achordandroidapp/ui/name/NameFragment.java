@@ -90,6 +90,15 @@ public class NameFragment extends Fragment {
 
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
+
+        //Setting up the default data
+        viewModel.setTitle("Name");
+        viewModel.setAuthor("Author");
+        viewModel.setKey("C");
+        viewModel.setTimeSignature("4/4");
+
+
+
         viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
