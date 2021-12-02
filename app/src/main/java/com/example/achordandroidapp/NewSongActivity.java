@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.achordandroidapp.ui.name.NameFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -62,7 +63,20 @@ public class NewSongActivity extends AppCompatActivity {
 
         //
         createTitleTextView = findViewById(R.id.textViewCreateTitle);
-        createTitleTextView.setText("Name");
+        createTitleTextView.setText("New Sheet");
+
+        /* Attempting to get the names/tags of the fragments
+        setContentView(navView);
+        NameFragment test = (NameFragment) getSupportFragmentManager().findFragmentByTag("Name");
+        if (test != null && test.isVisible()) {
+            createTitleTextView.setText("Name");        }
+        else {
+            //Whatever
+        }
+        */
+
+
+
 
 
 

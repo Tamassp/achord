@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.key.KeyFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -19,8 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:layout_marginBottom="10sp"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewKeyAuthor"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
@@ -29,10 +30,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextSongKey"
+        android:typeface="serif"
+        android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewKeyName" />
 
     <EditText
         android:id="@+id/editTextSongKey"
