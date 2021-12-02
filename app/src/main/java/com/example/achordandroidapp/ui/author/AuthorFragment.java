@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 import com.example.achordandroidapp.Sheet;
-import com.example.achordandroidapp.ui.name.NameFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,7 +87,7 @@ public class AuthorFragment extends Fragment {
 
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
-        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+        viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
                 textViewName.setText(sheet.getTitle());

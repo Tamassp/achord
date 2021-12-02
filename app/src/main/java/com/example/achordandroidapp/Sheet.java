@@ -7,6 +7,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.versionedparcelable.VersionedParcelize;
 
+import com.example.achordandroidapp.Editor.Bar;
+
+import java.util.List;
+
 
 @Entity (tableName = "sheet_table")
 public class Sheet implements Parcelable {
@@ -18,6 +22,7 @@ public class Sheet implements Parcelable {
     private String key;
     private String timeSignature;
     private int tempo;
+    //private List<Bar> barList;
 
     public Sheet(){
 
@@ -114,4 +119,16 @@ public class Sheet implements Parcelable {
         parcel.writeString(timeSignature);
         parcel.writeInt(tempo);
     }
+//
+//    public List<Bar> getBarList() {
+//        return barList;
+//    }
+//
+//    public void setBarList(List<Bar> barList) {
+//        this.barList = barList;
+//    }
+//
+//    public void addBarToList(Bar bar){
+//        barList.add(bar);
+//    }
 }

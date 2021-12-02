@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.achordandroidapp.Editor.EditorActivity;
-import com.example.achordandroidapp.NewSongActivity;
 import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 import com.example.achordandroidapp.Sheet;
@@ -45,7 +44,7 @@ public class StartEditingFragment extends Fragment {
         TextView textViewSEAuthor = view.findViewById(R.id.textViewSEAuthor);
         TextView textViewSEKey = view.findViewById(R.id.textViewSEKey);
         TextView textViewSESignature = view.findViewById(R.id.textViewSESignature);
-        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+        viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
                 textViewSEName.setText(sheet.getTitle());

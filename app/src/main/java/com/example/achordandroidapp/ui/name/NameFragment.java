@@ -1,13 +1,8 @@
 package com.example.achordandroidapp.ui.name;
 
-import android.app.Notification;
-import android.content.ClipData;
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,16 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.achordandroidapp.NewSongActivity;
 import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 import com.example.achordandroidapp.Sheet;
-import com.example.achordandroidapp.ui.author.AuthorFragment;
-
-import java.util.StringJoiner;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -101,7 +90,7 @@ public class NameFragment extends Fragment {
 
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
-        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+        viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
 

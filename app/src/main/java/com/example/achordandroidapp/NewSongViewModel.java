@@ -4,10 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.achordandroidapp.Editor.Bar;
+
+import java.util.List;
+
 public class NewSongViewModel extends ViewModel {
 
-    private MutableLiveData<Sheet> sheet = new MutableLiveData<Sheet>();
-    private static Sheet sheet2 = new Sheet("","","","",0);
+    private MutableLiveData<Sheet> sheetMut = new MutableLiveData<Sheet>();
+    private static Sheet sheetItem = new Sheet("","","","",0);
 
     /*NewSongViewModel(){
         sheet = new MutableLiveData<Sheet>();
@@ -15,8 +19,8 @@ public class NewSongViewModel extends ViewModel {
         sheet.setValue(sheetObj);
     }*/
 
-    public LiveData<Sheet> getSheet() {
-        return sheet;
+    public LiveData<Sheet> getSheetMut() {
+        return sheetMut;
     }
 
     public void updateSheet (Sheet sheet){
@@ -32,32 +36,40 @@ public class NewSongViewModel extends ViewModel {
 //        if(sheet.getTimeSignature() != null) {
 //            this.sheet.getValue().setTimeSignature(sheet.getTimeSignature());
 //        }
-        this.sheet.setValue(sheet);
+        this.sheetMut.setValue(sheet);
 
     }
 
     public void setTitle(String title){
-        sheet2.setTitle(title);
-        sheet.setValue(sheet2);
+        sheetItem.setTitle(title);
+        sheetMut.setValue(sheetItem);
    }
 
    public void setAuthor(String author){
-        sheet2.setAuthor(author);
-        sheet.setValue(sheet2);
+        sheetItem.setAuthor(author);
+        sheetMut.setValue(sheetItem);
    }
 
    public void setKey(String key){
-        sheet2.setKey(key);
-        sheet.setValue(sheet2);
+        sheetItem.setKey(key);
+        sheetMut.setValue(sheetItem);
    }
 
    public void setTimeSignature(String timeSignature){
-        sheet2.setTimeSignature(timeSignature);
-        sheet.setValue(sheet2);
+        sheetItem.setTimeSignature(timeSignature);
+        sheetMut.setValue(sheetItem);
    }
 
 
-
+//   public void setBarList(List<Bar> barList){
+//        sheetItem.setBarList(barList);
+//       sheetMut.setValue(sheetItem);
+//   }
+//
+//   public void addBar(Bar bar){
+//        sheetItem.addBarToList(bar);
+//       sheetMut.setValue(sheetItem);
+//   }
 
 
 }

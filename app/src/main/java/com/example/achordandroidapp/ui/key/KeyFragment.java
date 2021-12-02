@@ -76,7 +76,7 @@ public class KeyFragment extends Fragment {
 
         TextView textViewKeyName = view.findViewById(R.id.textViewKeyName);
         TextView textViewKeyAuthor = view.findViewById(R.id.textViewKeyAuthor);
-        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+        viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
                 textViewKeyName.setText(sheet.getTitle());

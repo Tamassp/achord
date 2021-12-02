@@ -1,8 +1,10 @@
 package com.example.achordandroidapp;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,6 +27,7 @@ public class NewSongActivity extends AppCompatActivity {
     private ActivityNewSongBinding binding;
     NewSongViewModel newSongViewModel;
     TextView createTitleTextView;
+    Button backButton;
 
 
     @Override
@@ -47,6 +50,12 @@ public class NewSongActivity extends AppCompatActivity {
 
         newSongViewModel = new ViewModelProvider(this).get(NewSongViewModel.class);
 
+
+        backButton = findViewById(R.id.buttonBackNewSong);
+        backButton.setOnClickListener(v-> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
 
         //Observing the Title TextView in the activity
 

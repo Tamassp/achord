@@ -42,7 +42,7 @@ public class SignatureFragment extends Fragment {
         TextView textViewSigName = view.findViewById(R.id.textViewSigName);
         TextView textViewSigAuthor = view.findViewById(R.id.textViewSigAuthor);
         TextView textViewSigKey = view.findViewById(R.id.textViewSigKey);
-        viewModel.getSheet().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+        viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
                 textViewSigName.setText(sheet.getTitle());
