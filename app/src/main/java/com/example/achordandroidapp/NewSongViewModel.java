@@ -1,5 +1,8 @@
 package com.example.achordandroidapp;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -13,7 +16,10 @@ public class NewSongViewModel extends ViewModel {
     private MutableLiveData<Sheet> sheetMut = new MutableLiveData<Sheet>();
     private static Sheet sheetItem = new Sheet("","","","",0);
 
-    /*NewSongViewModel(){
+    /*NewSongViewModel(Application app){
+        super(app);
+        sheetRepository = Repository.getInstance(app);
+
         /*sheetItem.setTitle("Title");
         sheetItem.setAuthor("Author");
         sheetItem.setKey("C");

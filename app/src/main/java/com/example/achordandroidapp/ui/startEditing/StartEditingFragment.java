@@ -27,6 +27,7 @@ public class StartEditingFragment extends Fragment {
     //private StartEditingViewModel mViewModel;
 
     private NewSongViewModel viewModel;
+    private StartEditingViewModel editingViewModel;
     private Button buttonStartEditing;
     public static StartEditingFragment newInstance() {
         return new StartEditingFragment();

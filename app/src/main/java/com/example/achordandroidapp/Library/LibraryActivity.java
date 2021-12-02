@@ -1,6 +1,7 @@
 package com.example.achordandroidapp.Library;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.widget.Button;
 
 import com.example.achordandroidapp.MainActivity;
 import com.example.achordandroidapp.NewSongActivity;
+import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 import com.example.achordandroidapp.Sheet;
 
@@ -18,10 +20,13 @@ import java.util.List;
 
 public class LibraryActivity extends AppCompatActivity {
     RecyclerView recyclerViewLibrary;
+    LibraryViewModel libraryViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
+
+        libraryViewModel= new ViewModelProvider(this).get(LibraryViewModel.class);
 
         recyclerViewLibrary = findViewById(R.id.recyclerViewLibrary);
 
@@ -30,8 +35,15 @@ public class LibraryActivity extends AppCompatActivity {
 
         List<Sheet> sheetList = new ArrayList<>();
 
-        sheetList.add(new Sheet("The best", "Tina Turner", "F", "4/4",120));
+        sheetList.add(new Sheet("The Best", "Tina Turner", "F", "4/4",120));
         sheetList.add(new Sheet("Proud Mary","Tina Turner", "Dm", "4/4",100 ));
+        sheetList.add(new Sheet("Let Me Entertain You","Robbie Williams", "F", "4/4",100 ));
+        sheetList.add(new Sheet("Take Five","Dave Brubeck", "Ebm", "5/4",96 ));
+        sheetList.add(new Sheet("Money Money Money","ABBA", "Am", "4/4",100 ));
+        sheetList.add(new Sheet("Imagine","John Lennon", "C", "4/4",78 ));
+
+        //sheetList = libraryViewModel.getSheetList();
+
 
         SheetAdapter sheetAdapter = new SheetAdapter(sheetList);
         recyclerViewLibrary.setAdapter(sheetAdapter);

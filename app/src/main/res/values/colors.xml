@@ -9,5 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">	#E35335</color>
     <color name='colorSecondary'>#FFFFFF</color>
+    <!-- later a common button design can be added
     <color name='colorButton'></color>
+    -->
+
+    <color name="colorBorder">#4F091D</color>
 </resources>

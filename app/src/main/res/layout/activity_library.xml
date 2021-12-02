@@ -10,7 +10,7 @@
         android:id="@+id/textViewLibraryHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorBorder"
         android:padding="13sp"
         android:text="Your Sheets: "
         android:textColor="@color/colorSecondary"

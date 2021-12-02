@@ -27,6 +27,7 @@ public class EditorActivity extends AppCompatActivity implements BarAdapter.OnLi
 
     RecyclerView recyclerViewEd;
     NewSongViewModel newSongViewModel;
+    EditorViewModel editorViewModel;
     Button addButton, backButton, saveButton;
     EditText addEditText;
 
@@ -70,6 +71,11 @@ public class EditorActivity extends AppCompatActivity implements BarAdapter.OnLi
         saveButton = findViewById(R.id.buttonEditorSave);
         saveButton.setOnClickListener(v -> {
             //Saving the sheet in the local storage
+            System.out.println(newSongViewModel.getSheetMut().getValue());
+            if(newSongViewModel.getSheetMut().getValue() != null){
+                editorViewModel.insert(newSongViewModel.getSheetMut().getValue());
+            }
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
