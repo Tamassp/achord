@@ -1,10 +1,22 @@
 package com.example.achordandroidapp;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.versionedparcelable.VersionedParcelize;
+
+import com.example.achordandroidapp.Editor.Bar;
+
+import java.util.List;
+
+
+//parcelable because of the bundles
+//I removed the bundles
 
 @Entity (tableName = "sheet_table")
-public class Sheet {
+public class Sheet implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -13,6 +25,12 @@ public class Sheet {
     private String key;
     private String timeSignature;
     private int tempo;
+    //List is not yet compatible
+    //private List<Bar> barList;
+
+    public Sheet(){
+
+    }
 
     public Sheet(String title, String author, String key, String timeSignature, int tempo) {
         this.title = title;
@@ -21,6 +39,30 @@ public class Sheet {
         this.timeSignature = timeSignature;
         this.tempo = tempo;
     }
+
+    //Parcelable methods in case I need to use it again
+    protected Sheet(Parcel in) {
+        id = in.readInt();
+        title = in.readString();
+        author = in.readString();
+        key = in.readString();
+        timeSignature = in.readString();
+        tempo = in.readInt();
+    }
+
+
+//Parcelable methods in case I need to use it again
+    public static final Creator<Sheet> CREATOR = new Creator<Sheet>() {
+        @Override
+        public Sheet createFromParcel(Parcel in) {
+            return new Sheet(in);
+        }
+
+        @Override
+        public Sheet[] newArray(int size) {
+            return new Sheet[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -69,4 +111,33 @@ public class Sheet {
     public void setTempo(int tempo) {
         this.tempo = tempo;
     }
+
+
+    //Parcelable methods in case I need to use it again
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(title);
+        parcel.writeString(author);
+        parcel.writeString(key);
+        parcel.writeString(timeSignature);
+        parcel.writeInt(tempo);
+    }
+//
+//    public List<Bar> getBarList() {
+//        return barList;
+//    }
+//
+//    public void setBarList(List<Bar> barList) {
+//        this.barList = barList;
+//    }
+//
+//    public void addBarToList(Bar bar){
+//        barList.add(bar);
+//    }
 }

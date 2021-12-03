@@ -3,12 +3,20 @@ package com.example.achordandroidapp.ui.key;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
+import com.example.achordandroidapp.Sheet;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +33,10 @@ public class KeyFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    //One common viewmodel for all of the fragments in this activity
+    private NewSongViewModel viewModel;
 
     public KeyFragment() {
         // Required empty public constructor
@@ -60,7 +72,49 @@ public class KeyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.key_fragment, container, false);
+
+        //One common viewmodel for all of the fragments in this activity
+        viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
+
+
+        TextView textViewKeyName = view.findViewById(R.id.textViewKeyName);
+        TextView textViewKeyAuthor = view.findViewById(R.id.textViewKeyAuthor);
+        viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
+            @Override
+            public void onChanged(Sheet sheet) {
+                textViewKeyName.setText(sheet.getTitle());
+                textViewKeyAuthor.setText(sheet.getAuthor());
+            }
+        });
+
+        //after the text has changed, the data is updated
+        EditText editTextSongKey = view.findViewById(R.id.editTextSongKey);
+        editTextSongKey.addTextChangedListener(new TextWatcher() {
+                                                      @Override
+                                                      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                                                      }
+
+                                                      @Override
+                                                      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                                                      }
+
+                                                      @Override
+                                                      public void afterTextChanged(Editable editable) {
+                                                          //after the text has changed, the data is updated
+                                                          viewModel.setKey(editable.toString());
+                                                      }
+                                                  }
+        );
+
+
+
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.key_fragment, container, false);
+        return view;
     }
 }

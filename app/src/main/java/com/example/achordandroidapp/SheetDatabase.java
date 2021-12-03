@@ -10,6 +10,8 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Sheet.class}, version = 1)
 public abstract class SheetDatabase extends RoomDatabase {
     private static SheetDatabase instance;
+
+    //Created by room library
     public abstract SheetDao getSheetDao();
 
     public static synchronized SheetDatabase getInstance(Context context){

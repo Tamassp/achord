@@ -9,18 +9,22 @@ import java.util.TimerTask;
 
 public class MainActivityViewModel extends ViewModel {
 
+    //TEST METHOD -- can be deleted at releasing process
     private MutableLiveData<String> message = new MutableLiveData<>();
 
+    //TEST METHOD -- can be deleted at releasing process
     public LiveData<String> getMessage(){
         return message;
     }
 
-    public void retrieveData(){
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                message.postValue("HeloHelo");
-            }
-        },3000);
-    }
+
+    //TEST METHOD -- can be deleted at releasing process
+//    public void retrieveData(){
+//        new Timer().schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                message.postValue("HeloHelo");
+//            }
+//        },3000);
+//    }
 }

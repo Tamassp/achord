@@ -32,14 +32,14 @@ public class Repository {
         return allSheets;
     }
 
+
+
     public void insert(Sheet sheet){
         executorService.execute(() -> sheetDao.insert(sheet));
     }
 
-    /*public void deleteAllJedies(){
-        executorService.execute(ORDER 66);
-    }*/
 
+    //Delete every sheet from the local database
     public void deleteAllSheets(){
         executorService.execute(sheetDao::deleteAllNotes);
     }
