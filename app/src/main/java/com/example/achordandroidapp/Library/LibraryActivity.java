@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.achordandroidapp.Editor.EditorActivity;
 import com.example.achordandroidapp.MainActivity;
 import com.example.achordandroidapp.NewSongActivity;
 import com.example.achordandroidapp.NewSongViewModel;
@@ -66,8 +67,9 @@ public class LibraryActivity extends AppCompatActivity implements SheetAdapter.O
     @Override
     public void onListItemClick(int position) {
         //Click Test
-        Toast.makeText(this, "Position: " + position, Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(this, "Position: " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, EditorActivity.class);
+        startActivity(intent);
 
 
     }

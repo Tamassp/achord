@@ -56,7 +56,7 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.ViewHolder> {
             chord1 = itemView.findViewById(R.id.chord1);
         }
     }
-
+    //Testing onclick
     public interface OnListItemClickListener{
         void onClick(int position);
     }

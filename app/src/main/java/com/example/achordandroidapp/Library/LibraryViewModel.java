@@ -13,6 +13,8 @@ import java.util.List;
 
 public class LibraryViewModel extends AndroidViewModel {
     Repository sheetRepo;
+
+    //The repository and the database will be accessed from this viewmodel
     public LibraryViewModel(@NonNull Application application) {
         super(application);
         sheetRepo = Repository.getInstance(application);

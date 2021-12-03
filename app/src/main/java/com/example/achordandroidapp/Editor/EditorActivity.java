@@ -92,5 +92,6 @@ public class EditorActivity extends AppCompatActivity implements BarAdapter.OnLi
     @Override
     public void onClick(int position) {
         Toast.makeText(this, "Position: " + position, Toast.LENGTH_SHORT).show();
+
     }
 }
