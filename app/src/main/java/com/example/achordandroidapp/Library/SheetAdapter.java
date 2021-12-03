@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +18,11 @@ import java.util.List;
 public class SheetAdapter extends RecyclerView.Adapter<SheetAdapter.ViewHolder> {
 
     List<Sheet> sheetList;
+    OnLibraryListCLickListener listener;
 
-    public SheetAdapter(List<Sheet> sheetList){
+    public SheetAdapter(List<Sheet> sheetList, OnLibraryListCLickListener listener){
         this.sheetList = sheetList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -54,11 +57,24 @@ public class SheetAdapter extends RecyclerView.Adapter<SheetAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.nameOfSheetElement);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onListItemClick(getAdapterPosition());
+
+                                            }
+            });
+
+                    name = itemView.findViewById(R.id.nameOfSheetElement);
             author = itemView.findViewById(R.id.authorOfSheetElement);
             key = itemView.findViewById(R.id.keyOfSheetElement);
             signature = itemView.findViewById(R.id.signatureOfSheetElement);
             tempo = itemView.findViewById(R.id.tempoOfSheetElement);
         }
+    }
+
+    public interface OnLibraryListCLickListener{
+        void onListItemClick(int position);
     }
 }

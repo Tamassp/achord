@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.achordandroidapp.MainActivity;
 import com.example.achordandroidapp.NewSongActivity;
@@ -18,7 +19,7 @@ import com.example.achordandroidapp.Sheet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryActivity extends AppCompatActivity {
+public class LibraryActivity extends AppCompatActivity implements SheetAdapter.OnLibraryListCLickListener {
     RecyclerView recyclerViewLibrary;
     LibraryViewModel libraryViewModel;
     @Override
@@ -45,7 +46,7 @@ public class LibraryActivity extends AppCompatActivity {
         //sheetList = libraryViewModel.getSheetList();
 
 
-        SheetAdapter sheetAdapter = new SheetAdapter(sheetList);
+        SheetAdapter sheetAdapter = new SheetAdapter(sheetList, this);
         recyclerViewLibrary.setAdapter(sheetAdapter);
 
         Button backButton = findViewById(R.id.buttonBackLibrary);
@@ -59,5 +60,11 @@ public class LibraryActivity extends AppCompatActivity {
             Intent intent = new Intent(this, NewSongActivity.class);
             startActivity(intent);
         });
+    }
+
+    //Recycler view click on element
+    @Override
+    public void onListItemClick(int position) {
+        Toast.makeText(this, "Position: " + position, Toast.LENGTH_SHORT).show();
     }
 }
