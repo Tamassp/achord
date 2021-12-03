@@ -37,3 +37,16 @@ Project Future with multiple devices:
 3.	As a user I want to create a session, so I can invite my friends into.
 
 
+
+Delivered requirements:
+The priorities have been changed on the way
+requirement 3 was put in the low/future requirements
+
+1. The user is able to create a sheet (but it is not saved in the app because of the database issue)
+2. The user can access the editor from the list but it is not masked for the specific sheet/song(requires database) 
+4. The user can see the list of the sheets (for now just a hardcoded list)
+
+I wanted to use room to access the local storage and I managed to implement most of it but it is not yet done, so that is why the app miss the backend part
+
+YouTube link: https://www.youtube.com/watch?v=pFaPNTYrwT0
+
