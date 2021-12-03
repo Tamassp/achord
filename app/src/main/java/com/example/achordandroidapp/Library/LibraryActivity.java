@@ -65,6 +65,10 @@ public class LibraryActivity extends AppCompatActivity implements SheetAdapter.O
     //Recycler view click on element
     @Override
     public void onListItemClick(int position) {
+        //Click Test
         Toast.makeText(this, "Position: " + position, Toast.LENGTH_SHORT).show();
+
+
+
     }
 }

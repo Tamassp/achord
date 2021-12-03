@@ -34,6 +34,8 @@ public class KeyFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    //One common viewmodel for all of the fragments in this activity
     private NewSongViewModel viewModel;
 
     public KeyFragment() {
@@ -71,6 +73,8 @@ public class KeyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.key_fragment, container, false);
+
+        //One common viewmodel for all of the fragments in this activity
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
 
@@ -84,7 +88,7 @@ public class KeyFragment extends Fragment {
             }
         });
 
-
+        //after the text has changed, the data is updated
         EditText editTextSongKey = view.findViewById(R.id.editTextSongKey);
         editTextSongKey.addTextChangedListener(new TextWatcher() {
                                                       @Override
@@ -99,6 +103,7 @@ public class KeyFragment extends Fragment {
 
                                                       @Override
                                                       public void afterTextChanged(Editable editable) {
+                                                          //after the text has changed, the data is updated
                                                           viewModel.setKey(editable.toString());
                                                       }
                                                   }

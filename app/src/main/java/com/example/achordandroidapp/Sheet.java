@@ -12,6 +12,9 @@ import com.example.achordandroidapp.Editor.Bar;
 import java.util.List;
 
 
+//parcelable because of the bundles
+//I removed the bundles
+
 @Entity (tableName = "sheet_table")
 public class Sheet implements Parcelable {
 
@@ -22,6 +25,7 @@ public class Sheet implements Parcelable {
     private String key;
     private String timeSignature;
     private int tempo;
+    //List is not yet compatible
     //private List<Bar> barList;
 
     public Sheet(){
@@ -36,6 +40,7 @@ public class Sheet implements Parcelable {
         this.tempo = tempo;
     }
 
+    //Parcelable methods in case I need to use it again
     protected Sheet(Parcel in) {
         id = in.readInt();
         title = in.readString();
@@ -45,6 +50,8 @@ public class Sheet implements Parcelable {
         tempo = in.readInt();
     }
 
+
+//Parcelable methods in case I need to use it again
     public static final Creator<Sheet> CREATOR = new Creator<Sheet>() {
         @Override
         public Sheet createFromParcel(Parcel in) {
@@ -105,6 +112,8 @@ public class Sheet implements Parcelable {
         this.tempo = tempo;
     }
 
+
+    //Parcelable methods in case I need to use it again
     @Override
     public int describeContents() {
         return 0;

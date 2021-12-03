@@ -23,7 +23,8 @@ import com.example.achordandroidapp.Sheet;
 
 public class SignatureFragment extends Fragment {
 
-    //private SignatureViewModel mViewModel;
+
+    //One common viewmodel for all of the fragments in this activity
     private NewSongViewModel viewModel;
 
     public static SignatureFragment newInstance() {
@@ -36,6 +37,7 @@ public class SignatureFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.signature_fragment, container, false);
 
+        //One common viewmodel for all of the fragments in this activity
         viewModel =  new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
 
@@ -52,6 +54,7 @@ public class SignatureFragment extends Fragment {
         });
 
 
+        //after the text has changed, the data is updated
 
         EditText editTextSongSignature = view.findViewById(R.id.editTextSongSignature);
         editTextSongSignature.addTextChangedListener(new TextWatcher() {
@@ -67,6 +70,7 @@ public class SignatureFragment extends Fragment {
 
                                                    @Override
                                                    public void afterTextChanged(Editable editable) {
+                                                       //after the text has changed, the data is updated
                                                        viewModel.setTimeSignature(editable.toString());
                                                    }
                                                }

@@ -24,10 +24,12 @@ import com.example.achordandroidapp.Sheet;
 
 public class StartEditingFragment extends Fragment {
 
-    //private StartEditingViewModel mViewModel;
 
+
+
+    //One common viewmodel for all of the fragments in this activity
     private NewSongViewModel viewModel;
-    private StartEditingViewModel editingViewModel;
+
     private Button buttonStartEditing;
     public static StartEditingFragment newInstance() {
         return new StartEditingFragment();
@@ -38,7 +40,7 @@ public class StartEditingFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.start_editing_fragment, container, false);
-
+        //One common viewmodel for all of the fragments in this activity
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
 
@@ -56,7 +58,7 @@ public class StartEditingFragment extends Fragment {
             }
         });
 
-
+        //Navigate to editor
         buttonStartEditing = view.findViewById(R.id.buttonStartEditing);
         buttonStartEditing.setOnClickListener(v -> {
             //The name and author have to be changed

@@ -18,6 +18,8 @@ import com.example.achordandroidapp.NewSongViewModel;
 import com.example.achordandroidapp.R;
 import com.example.achordandroidapp.Sheet;
 
+
+//The factory methods can be deleted. I have not done it because in the future they may be handy
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link NameFragment#newInstance} factory method to
@@ -34,10 +36,9 @@ public class NameFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button buttonNextName;
+    //One common viewmodel for all of the fragments in this activity
     private NewSongViewModel viewModel;
-    //Sheet sheet =
-    Sheet  tempSheet = new Sheet("","","","",0);
+
 
     public NameFragment() {
         // Required empty public constructor
@@ -70,24 +71,18 @@ public class NameFragment extends Fragment {
         }
     }
 
+    // ON CREATE VIEW ////////////////////////////////////////////
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        /*FragmentTransaction ft = getFragmentManager().beginTransaction();
-        Fragment fragment = AuthorFragment.newInstance("helo", "belo");
-        ft.replace(R.id.authorFragment,fragment);*/
-
-
-
-        //
 
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.name_fragment, container, false);
 
 
-
+        //One common viewmodel for all of the fragments in this activity
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
 
@@ -102,7 +97,7 @@ public class NameFragment extends Fragment {
         viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
-
+                //this fragment doesn't have anything to display
             }
         });
 
@@ -120,10 +115,9 @@ public class NameFragment extends Fragment {
 
         //Dummy test data
         //Sheet sheet = new Sheet("TITLE","AUTHOR","C","44",100 );
+
+
         EditText editTextSongName = view.findViewById(R.id.editTextSongName);
-
-
-
         editTextSongName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -137,18 +131,11 @@ public class NameFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                //after the text has changed, the data is updated
                 viewModel.setTitle(editable.toString());
 
             }
         });
-
-
-
-
-
-
-
 
 
         //I tried to pass the data with bundles but I realised, it is better to use a viewModel instead

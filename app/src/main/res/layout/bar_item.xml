@@ -8,9 +8,9 @@
         android:id="@+id/chord1"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="#CC0000"
+        android:background="#39E61708"
+        android:gravity="center"
         android:text="Gmajor"
-        android:textSize="60dp"
-        android:gravity="center"/>
+        android:textSize="60sp" />
 
 </LinearLayout>

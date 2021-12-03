@@ -37,7 +37,7 @@ public class AuthorFragment extends Fragment {
     Sheet  tempSheet = new Sheet("","","","",0);
     private TextView nameTextView;
 
-
+    //One common viewmodel for all of the fragments in this activity
     private NewSongViewModel viewModel;
 
 
@@ -74,6 +74,7 @@ public class AuthorFragment extends Fragment {
 
     }
 
+    // ON CREATE VIEW ////////////////////////////////////////////
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,9 +85,11 @@ public class AuthorFragment extends Fragment {
 
         TextView textViewName = view.findViewById(R.id.textViewName);
 
-
+        //One common viewmodel for all of the fragments in this activity
         viewModel = new ViewModelProvider(requireActivity()).get(NewSongViewModel.class);
 
+
+        //sending the value to the proper textView
         viewModel.getSheetMut().observe(getViewLifecycleOwner(), new Observer<Sheet>() {
             @Override
             public void onChanged(Sheet sheet) {
@@ -94,11 +97,7 @@ public class AuthorFragment extends Fragment {
             }
         });
 
-
-        //textViewName.setText(viewModel.getSheet().getValue().getTitle());
-
-        //Sheet sheet = viewModel.getSheet().getValue();
-
+        //after the text has changed, the data is updated
         EditText editTextSongAuthor = view.findViewById(R.id.editTextSongAuthor);
         editTextSongAuthor.addTextChangedListener(new TextWatcher() {
             @Override
@@ -113,6 +112,7 @@ public class AuthorFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                //after the text has changed, the data is updated
                 viewModel.setAuthor(editable.toString());
             }
                                                 }
@@ -131,12 +131,4 @@ public class AuthorFragment extends Fragment {
 
         return view ;
     }
-
-//    private void init(View view) {
-//        getViews(view);
-//    }
-//
-//    private void getViews(View view) {
-//
-//    }
 }

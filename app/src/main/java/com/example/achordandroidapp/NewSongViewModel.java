@@ -13,9 +13,14 @@ import java.util.List;
 
 public class NewSongViewModel extends ViewModel {
 
+    //LiveData instance to pass the data within the viewmodel
     private MutableLiveData<Sheet> sheetMut = new MutableLiveData<Sheet>();
+
+    //Static Sheet object to temporarily keep the data in the view
     private static Sheet sheetItem = new Sheet("","","","",0);
 
+
+    //Attempt to connect this viewmodel with the repository, but later I found out that it would be better to make a new viemodel for this
     /*NewSongViewModel(Application app){
         super(app);
         sheetRepository = Repository.getInstance(app);
@@ -30,10 +35,13 @@ public class NewSongViewModel extends ViewModel {
         sheet.setValue(sheetObj);*/
     //}
 
+    //Get the temporary sheet
     public LiveData<Sheet> getSheetMut() {
         return sheetMut;
     }
 
+
+    //update the whole temporary object, but it is better to update them by fields (less action)
     public void updateSheet (Sheet sheet){
 //        if(sheet.getTitle() != null) {
 //            this.sheet.setValue(sheet);
@@ -51,6 +59,8 @@ public class NewSongViewModel extends ViewModel {
 
     }
 
+
+    //update the temporary object by its fields
     public void setTitle(String title){
         sheetItem.setTitle(title);
         sheetMut.setValue(sheetItem);
@@ -70,6 +80,7 @@ public class NewSongViewModel extends ViewModel {
         sheetItem.setTimeSignature(timeSignature);
         sheetMut.setValue(sheetItem);
    }
+
 
 
 //   public void setBarList(List<Bar> barList){

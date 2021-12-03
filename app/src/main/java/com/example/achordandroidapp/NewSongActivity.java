@@ -44,24 +44,25 @@ public class NewSongActivity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nameFragment, R.id.authorFragment, R.id.keyFragment, R.id.signatureFragment, R.id.startEditingFragment)
                 .build();
+        //Setting up the navigation controller
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_new_song);
+
         //We don't need this since we disabled the default action bar
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        //initializing the viewmodel
         newSongViewModel = new ViewModelProvider(this).get(NewSongViewModel.class);
 
-
+        //navigation to the main menu
         backButton = findViewById(R.id.buttonBackNewSong);
         backButton.setOnClickListener(v-> {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
 
-        //Observing the Title TextView in the activity
-
-
-        //
+        //Setting up the header textView
         createTitleTextView = findViewById(R.id.textViewCreateTitle);
         createTitleTextView.setText("New Sheet");
 
@@ -76,13 +77,6 @@ public class NewSongActivity extends AppCompatActivity {
         */
 
 
-
-
-
-
-
     }
-
-
 
 }
